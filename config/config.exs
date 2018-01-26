@@ -23,8 +23,24 @@ config :bootloader,
 config :nerves, :firmware,
   rootfs_overlay: "rootfs_overlay"
 
+config :nerves_firmware_http,
+    json_provider: Poison,
+    json_opts: []
+
+config :nerves_network, :default,
+  wlan0: [
+    ssid: "YOUR SSID",
+    psk: "YOUR PASSWORD",
+    key_mgmt: "WPA-PSK"
+  ],
+  eth0: [
+    ipv4_address_method: :dhcp
+  ]
+
 # Import target specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 # Uncomment to use target specific configurations
 
 # import_config "#{Mix.Project.config[:target]}.exs"
+
+import_config "dev.secret.exs"

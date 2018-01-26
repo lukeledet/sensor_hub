@@ -8,5 +8,7 @@
 /_images
 /.nerves
 
+config/*secret*
+
 # Generate on crash by the VM
 erl_crash.dump

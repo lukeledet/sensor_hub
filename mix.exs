@@ -51,8 +51,12 @@ defmodule SensorHub.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   def deps do
-    [{:nerves, "~> 0.7", runtime: false}] ++
-    deps(@target)
+    [
+      {:nerves, "~> 0.7", runtime: false},
+      {:nerves_network, "~> 0.3"},
+      {:nerves_firmware_http, "~> 0.4"},
+      {:poison, "~> 3.1.0"},
+    ] ++ deps(@target)
   end
 
   # Specify target specific dependencies
